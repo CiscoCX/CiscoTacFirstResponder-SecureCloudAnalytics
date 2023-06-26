@@ -5,7 +5,7 @@ It should be noted that the script was designed around the provided ONA image ob
 Efforts have been made to work for advanced installations (non-default) Linux distros such as Red Hat, CentOS, etc. 
 
 Example output:
-
+```
 sysadmin@ona-12a345:~$ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | sudo python3 - -c 611111111 -t mkFAKEk2Y12345yuEkz
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -19,13 +19,15 @@ Uploading fle to TAC Case. This may take some time.
 ######################################################################## 100.0%
 `scabundle-ona-VMware-564d5da42dfcca70-8150ada109859521.20230626.1757.tar.xz` successfully uploaded to 695575321
 sysadmin@ona-12a345:~$
+```
 
 If you do not run script as root / sudo, the script will error out. 
 Example output: 
-
+```
 sysadmin@ona-12a345:~$ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | python3 - -c 611111111 -t mkFAKEk2Y12345yuEkz
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  7870  100  7870    0     0  35591      0 --:--:-- --:--:-- --:--:-- 35772
 You are not root, re-run this script as root. Exiting.
 sysadmin@ona-12a345:~$
+```

@@ -14,3 +14,10 @@ Compressing files. This may take some time.
 ##################################################################################################################################################################################################### 100.0%
 `scabundle-ona-VMware-123a4bc56defgh78-9876zyx543219876.20230626.1652.tar.xz` successfully uploaded to 611111111
 sysadmin@ona-12a345:~$
+
+If you do not run script as root / sudo, the script will error out. 
+Example output: 
+
+sysadmin@ona-12a345:~$ python3 scabundle.py -c 611111111 -t mkFAKEk2Y12345yuEkz
+You are not root, re-run this script as root. Exiting.
+sysadmin@ona-12a345:~$ 

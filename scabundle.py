@@ -141,7 +141,7 @@ def main():
     cmd = f"tar -Jcf {bundle_name} -C sensorbundle . ../capture.pcap --remove-files 2>/dev/null"
     print("\nCompressing files. This may take some time.")
     run(cmd, shell=True)
-    print("\nUploading fle to TAC Case. This may take some time.")
+    print("\nUploading file to TAC Case. This may take some time.")
     upload_file(case, token, bundle_name)
 
 if root_check():

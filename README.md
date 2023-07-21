@@ -6,7 +6,7 @@ Efforts have been made to work for advanced installations (non-default) Linux di
 
 Example output:
 ```
-sysadmin@ona-12a345:~$ curl -s https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | sudo python3 - -c 611111111 -t mkFAKEk2Y12345yuEkz
+sysadmin@ona-12a345:~$ curl -s https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | sudo python3 - upload -c 611111111 -t mkFAKEk2Y12345yuEkz
 [sudo] password for sysadmin:
 
 *** Creating Support Bundle
@@ -22,7 +22,19 @@ sysadmin@ona-12a345:~$
 If you do not run script as root / sudo, the script will error out. 
 Example output: 
 ```
-sysadmin@ona-12a345:~$ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | python3 - -c 611111111 -t mkFAKEk2Y12345yuEkz
+sysadmin@ona-12a345:~$ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | python3 - upload -c 611111111 -t mkFAKEk2Y12345yuEkz
 You are not root, re-run this script as root. Exiting.
 sysadmin@ona-12a345:~$
+```
+
+If you prefer to no upload the collected data you may use the 'no-upload' option. This option will not attempt to upload the data to Cisco TAC case. 
+```
+sysadmin@ona-12a345:~$ curl -s -S https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-SecureCloudAnalytics/main/scabundle.py | sudo python3 - no-upload
+[sudo] password for sysadmin:
+
+*** Creating Support Bundle
+Processing 10/10: pcap_30_second
+Compressing files. This may take some time.
+sysadmin@ona-12a345:~$
+
 ```

@@ -15,7 +15,7 @@ Compressing files. This may take some time.
 
 Uploading file to TAC Case. This may take some time.
 ######################################################################## 100.0%
-`scabundle-ona-VMware-564d5da42dfcca70-8150ada109859521.20230626.1757.tar.xz` successfully uploaded to 695575321
+`scabundle-ona-VMware-564d5da42dfcca70-8150ada109859521.20230626.1757_xdafr.tar.xz` successfully uploaded to 695575321
 sysadmin@ona-12a345:~$
 ```
 

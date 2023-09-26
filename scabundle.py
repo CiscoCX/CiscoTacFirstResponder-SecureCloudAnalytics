@@ -2,7 +2,7 @@
 
 __author__ = "SCA TAC First Responders"
 __copyright__ = "Copyright 2023, Cisco Systems Inc."
-__version__ = "1.2"
+__version__ = "1.2.1"
 __status__ = "Production"
 
 import netifaces
@@ -172,15 +172,20 @@ def pcap_30_second():
     run(cmd, shell=True)
 
 def main():
-    functions = [set_stage, ona_meta_data, get_ip, os_info, network, connectivity, ona_settings_and_logs, process_info, disk_stats, pcap_30_second]
+    functions = [set_stage, ona_meta_data, get_ip, os_info, network, connectivity, ona_settings_and_logs, process_info, disk_stats, pcap_3_second]
     print("\r\n*** Creating Support Bundle")
     for i, func in enumerate(functions, start=1):
         print(f"Processing {i}/{len(functions)}: {func.__name__:<22}", end="\r")
         func()
-    bundle_name = f"scabundle-ona-{open('/sys/class/dmi/id/product_serial').read().strip().replace(' ','')}.{datetime.now(timezone.utc).strftime('%Y%m%d.%H%M')}.tar.xz"
+    bundle_name = f"scabundle-ona-{open('/sys/class/dmi/id/product_serial').read().strip().replace(' ','')}.{datetime.now(timezone.utc).strftime('%Y%m%d.%H%M')}"
+    if args.command == "upload":
+        bundle_name += "_xdrafr.tar.xz"
+    else:
+        bundle_name += ".tar.xz"
     cmd = f"tar -Jcf {bundle_name} -C {bundledir} . ../capture.pcap --remove-files 2>/dev/null"
     print("\nCompressing files. This may take some time.")
     run(cmd, shell=True)
+
     if args.command == "upload":
         print("\nUploading file to TAC Case. This may take some time.")
         upload_file(case, token, bundle_name)

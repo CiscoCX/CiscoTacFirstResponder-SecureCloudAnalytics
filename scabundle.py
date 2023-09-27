@@ -172,7 +172,7 @@ def pcap_30_second():
     run(cmd, shell=True)
 
 def main():
-    functions = [set_stage, ona_meta_data, get_ip, os_info, network, connectivity, ona_settings_and_logs, process_info, disk_stats, pcap_3_second]
+    functions = [set_stage, ona_meta_data, get_ip, os_info, network, connectivity, ona_settings_and_logs, process_info, disk_stats, pcap_30_second]
     print("\r\n*** Creating Support Bundle")
     for i, func in enumerate(functions, start=1):
         print(f"Processing {i}/{len(functions)}: {func.__name__:<22}", end="\r")

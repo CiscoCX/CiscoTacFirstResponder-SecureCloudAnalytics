@@ -123,6 +123,7 @@ def os_info():
     cmd_to_file(f'{bundledir}/os_info/apt_list_netsa', 'apt list --installed netsa-pkg')
     cmd_to_file(f'{bundledir}/os_info/rpm_netsa', 'rpm -q netsa-pkg')
     cmd_to_file(f'{bundledir}/os_info/last_reboot', 'uptime -s')
+    cmd_to_file(f'{bundledir}/os_info/all_installed_packages', 'apt list --installed')
 
 def network():
     cmd_to_file(f'{bundledir}/network/ip_addr_show', 'ip addr show')

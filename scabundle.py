@@ -2,7 +2,7 @@
 
 __author__ = "SCA TAC First Responders"
 __copyright__ = "Copyright 2023, Cisco Systems Inc."
-__version__ = "1.2.3"
+__version__ = "1.2.4"
 __status__ = "Production"
 
 import netifaces
@@ -147,6 +147,8 @@ def connectivity():
 def ona_settings_and_logs():
     copytree("/opt/obsrvbl-ona/", f'{bundledir}/ona_settings/', ignore=ignore_patterns('*python-packages*', '*__pycache__*','*.2*','*pna-*.log*','*pdns_*.pcap.gz'), copy_function=copy)
     copytree("/var/log", f'{bundledir}/var/log/', ignore=ignore_patterns('*.dat','journal'), copy_function=copy)
+    copytree("/etc/ise_poller", f'{bundledir}/etc/ise_poller/', copy_function=copy)
+    copytree("/tmp/ise_poller", f'{bundledir}/tmp/ise_poller/', copy_function=copy)
     cmd = f"/opt/silk/bin/rwcut --timestamp-format iso --fields sIp,dIp,sPort,dPort,protocol,Bytes,Packets,sTime,eTime /opt/obsrvbl-ona/logs/ipfix/.202* >> {bundledir}/ona_settings/logs/ipfix/clear_silk 2>/dev/null"
     run(cmd,shell=True)
 
